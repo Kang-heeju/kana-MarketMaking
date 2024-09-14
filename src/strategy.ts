@@ -6,7 +6,7 @@ let flag = false;
 let lastTradeTime = Date.now();
 let temp = 0;
 let isOrderOpen = true;
-let quantity = 4;
+let quantity = 7;
 
 export async function marketMaking(client: MainClient) {
   const marketPrice = await client.getMarketPrice();
@@ -41,36 +41,25 @@ export async function marketMaking(client: MainClient) {
       console.log(`Execution Price: ${executionPrice}\n ask : ${ask}`);
       if (Math.abs(Number(executionPrice) - Number(ask)) <= 0.02) {
         console.log("APT 매수 가능");
-        // const buyOrder = await client.placeLimitOrder(
-        //   BUY,
-        //   quantity,
-        //   Number(executionPrice)
-        // );
-        const buyOrder = await client.placeMarketOrder(BUY, quantity);
+        const buyOrder = await client.placeLimitOrder(
+          BUY,
+          quantity,
+          Number(executionPrice)
+        );
+        // const buyOrder = await client.placeMarketOrder(BUY, quantity);
         lastTradeTime = Date.now();
         temp = executionPrice;
-        // if (buyOrder == 0) {
-        //   //   console.log("buyOrder complete");
-        //   //   console.log(`Price: ${Number(executionPrice)}\n`);
-
-        // }
       }
     }
     if (isOrderOpen && Number(marketPrice.bestAskPrice) >= temp) {
       console.log("APT 매도 가능");
-      // const sellOrder = await client.placeLimitOrder(
-      //   SELL,
-      //   quantity,
-      //   Number(executionPrice)
-      // );
-      const sellOrder = await client.placeMarketOrder(SELL, quantity);
+      const sellOrder = await client.placeLimitOrder(
+        SELL,
+        quantity,
+        Number(executionPrice)
+      );
+      // const sellOrder = await client.placeMarketOrder(SELL, quantity);
       lastTradeTime = Date.now();
-
-      // if (sellOrder == 0) {
-      //   //console.log("파는 가격 : " + Number(marketPrice.bestAskPrice));
-      //   // console.log("sellOrder complete");
-      //   // console.log(`Price: ${Number(executionPrice)}\n`);
-      // }
     }
   }
 
