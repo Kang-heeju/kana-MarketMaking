@@ -1,24 +1,24 @@
 import { MainClient } from "./client/main.client";
 import {
-  account0,
-  account1,
-  account2,
-  // account3,
-  // account4,
-  // account5,
+  // account0,
+  // account1,
+  // account2,
+  account3,
+  account4,
+  account5,
 } from "./config";
 import { marketMaking } from "./strategy";
 
 async function main() {
-  const client0 = new MainClient(account0);
-  const client1 = new MainClient(account1);
-  const client2 = new MainClient(account2);
-  // const client3 = new MainClient(account3);
-  // const client4 = new MainClient(account4);
-  // const client5 = new MainClient(account5);
+  // const client0 = new MainClient(account0);
+  // const client1 = new MainClient(account1);
+  // const client2 = new MainClient(account2);
+  const client3 = new MainClient(account3);
+  const client4 = new MainClient(account4);
+  const client5 = new MainClient(account5);
 
   console.log("Start Market Making");
-  const clients = [client0, client1, client2];
+  const clients = [client3, client4, client5];
 
   const runMarketMaking = async () => {
     console.log("Executing marketMaking\n");
