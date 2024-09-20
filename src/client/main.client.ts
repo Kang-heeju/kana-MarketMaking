@@ -119,12 +119,14 @@ export class MainClient {
       const integer = lastPrice.c ? lastPrice.c[0] : 0;
       let decimal = 0;
       if (lastPrice.c && integer == 6) {
-        decimal = lastPrice.c[1] / Math.pow(10, String(lastPrice.c[1]).length + 0);
+        decimal =
+          lastPrice.c[1] / Math.pow(10, String(lastPrice.c[1]).length + 0);
       } else if (lastPrice.c && integer == 5) {
+        decimal = lastPrice.c[1] / Math.pow(10, String(lastPrice.c[1]).length);
+      } else if (lastPrice.c && integer == 7) {
         decimal = lastPrice.c[1] / Math.pow(10, String(lastPrice.c[1]).length);
       }
       const executionPrice = integer + decimal;
-
       // console.log(lastPrice);
       // console.log(executionPrice);
       // console.log(marketData);

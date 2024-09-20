@@ -19,20 +19,20 @@ export const account2 = AptosAccount.fromAptosAccountObject({
   privateKeyHex: process.env.APTOS_PRIVATEKEY2 || "",
 });
 
-// export const account3 = AptosAccount.fromAptosAccountObject({
-//   address: process.env.APTOS_ADDRESS3 || "",
-//   // publicKeyHex: process.env.APTOS_PUBLICKEY3 || "",
-//   privateKeyHex: process.env.APTOS_PRIVATEKEY3 || "",
-// });
+export const account3 = AptosAccount.fromAptosAccountObject({
+  address: process.env.APTOS_ADDRESS3 || "",
+  // publicKeyHex: process.env.APTOS_PUBLICKEY3 || "",
+  privateKeyHex: process.env.APTOS_PRIVATEKEY3 || "",
+});
 
-// export const account4 = AptosAccount.fromAptosAccountObject({
-//   address: process.env.APTOS_ADDRESS4 || "",
-//   // publicKeyHex: process.env.APTOS_PUBLICKEY4 || "",
-//   privateKeyHex: process.env.APTOS_PRIVATEKEY4 || "",
-// });
+export const account4 = AptosAccount.fromAptosAccountObject({
+  address: process.env.APTOS_ADDRESS4 || "",
+  // publicKeyHex: process.env.APTOS_PUBLICKEY4 || "",
+  privateKeyHex: process.env.APTOS_PRIVATEKEY4 || "",
+});
 
-// export const account5 = AptosAccount.fromAptosAccountObject({
-//   address: process.env.APTOS_ADDRESS5 || "",
-//   // publicKeyHex: process.env.APTOS_PUBLICKEY5 || "",
-//   privateKeyHex: process.env.APTOS_PRIVATEKEY5 || "",
-// });
+export const account5 = AptosAccount.fromAptosAccountObject({
+  address: process.env.APTOS_ADDRESS5 || "",
+  // publicKeyHex: process.env.APTOS_PUBLICKEY5 || "",
+  privateKeyHex: process.env.APTOS_PRIVATEKEY5 || "",
+});

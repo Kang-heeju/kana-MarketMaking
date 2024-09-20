@@ -14,16 +14,16 @@ export async function marketMaking(client: MainClient) {
   const bid = marketPrice.bestBidPrice;
   const ask = marketPrice.bestAskPrice;
   let executionPrice = await client.getLastPrice();
-
+  console.log(ask, bid, executionPrice);
   if (Math.abs(Number(bid) - executionPrice) > 0.15) {
     //소수점 리밸런싱
-    // console.log(`Rebalance execution Price: ${executionPrice}`);
-    // console.log(`Bid price: ${bid}`);
+    console.log(`Rebalance execution Price: ${executionPrice}`);
+    console.log(`Bid price: ${bid}`);
     let integerPart = Math.floor(executionPrice);
     let decimalPart = executionPrice - integerPart;
     let shiftedDecimal = decimalPart / 10;
     executionPrice = integerPart + shiftedDecimal;
-    // console.log(`Rebalanced execution Price: ${executionPrice}\n`);
+    console.log(`Rebalanced execution Price: ${executionPrice}\n`);
   }
   const spread = Number(ask) - Number(bid);
 
@@ -37,7 +37,7 @@ export async function marketMaking(client: MainClient) {
 
   if (isOrderOpen && orderstatus == 0) {
     //openOrder 존재 x -> 모든 주문 체결 완료
-    if (spread <= 0.004001) {
+    if (spread <= 0.003001) {
       console.log(`Execution Price: ${executionPrice}\n ask : ${ask}`);
       if (Math.abs(Number(executionPrice) - Number(ask)) <= 0.02) {
         console.log("APT 매수 가능");
