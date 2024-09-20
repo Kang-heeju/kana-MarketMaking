@@ -37,14 +37,14 @@ export async function marketMaking(client: MainClient) {
 
   if (isOrderOpen && orderstatus == 0) {
     //openOrder 존재 x -> 모든 주문 체결 완료
-    if (spread <= 0.002501) {
+    if (spread <= 0.004001) {
       console.log(`Execution Price: ${executionPrice}\n ask : ${ask}`);
       if (Math.abs(Number(executionPrice) - Number(ask)) <= 0.02) {
         console.log("APT 매수 가능");
         const buyOrder = await client.placeLimitOrder(
           BUY,
           quantity,
-          Number(executionPrice)
+          Number(bid)
         );
         // const buyOrder = await client.placeMarketOrder(BUY, quantity);
         lastTradeTime = Date.now();
@@ -56,7 +56,7 @@ export async function marketMaking(client: MainClient) {
       const sellOrder = await client.placeLimitOrder(
         SELL,
         quantity,
-        Number(executionPrice)
+        Number(ask)
       );
       // const sellOrder = await client.placeMarketOrder(SELL, quantity);
       lastTradeTime = Date.now();
