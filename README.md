@@ -13,9 +13,8 @@ kanaMMbot is a **market-making bot** for **kana exchange**, designed to automate
 
 ## Folder Structure
 
-kana-MarketMaking/
-
 ```
+kana-MarketMaking/
 ├── src/                # Source code
 │   ├── strategy.ts     # Trading strategies files
 │   ├── interfaces/     # Interfaces and tools
