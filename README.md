@@ -14,15 +14,19 @@ kanaMMbot is a **market-making bot** for **kana exchange**, designed to automate
 ## Folder Structure
 
 kana-MarketMaking/
-├── src/ # Source code
-│ ├── strategy.ts # Trading strategies files
-│ ├── interfaces/ # Interfaces and tools
-│ ├── client/ # Exchange API client class
-│ └── main.ts # Main execution file
-│ └── config.ts # Configuration files (API keys, environment variables, etc.)  
-├── tests/ # Test code
-├── README.md # README file
-└── package.json # Dependency and script management file
+
+```
+├── src/                # Source code
+│   ├── strategy.ts     # Trading strategies files
+│   ├── interfaces/     # Interfaces and tools
+│   ├── client/         # Exchange API client class
+│   ├── main.ts         # Main execution file
+│   └── config.ts       # Configuration files (API keys, environment variables, etc.)
+├── tests/              # Test code
+├── README.md           # README file
+├── .env                # Environment variables file
+└── package.json        # Dependency and script management file
+```
 
 ---
 
